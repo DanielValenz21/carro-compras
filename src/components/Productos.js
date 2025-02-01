@@ -1,28 +1,29 @@
 import { Component } from "react";
 import Producto from "./Producto";
-const styles = {
-    productos: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    }
-}
 
+const styles = {
+  productos: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  }
+};
 
 class Productos extends Component {
-    render() {
-        const {productos, agregarCarrito} = this.props;
-
-        return (
-            <div style={styles.productos}>
-                {productos.map(producto => 
-                <Producto
-                    agregarCarrito={()=>agregarCarrito(producto)}
-                    key={producto.name}
-                    producto={producto}
-                />)}
-            </div>    
-        )
-    }
+  render() {
+    const { productos, agregarAlCarrito } = this.props;
+    return (
+      <div style={styles.productos}>
+        {productos.map(producto => 
+          <Producto
+            key={producto.name}
+            producto={producto}
+            agregarCarrito={() => agregarAlCarrito(producto)}
+          />
+        )}
+      </div>
+    );
+  }
 }
-export default Productos
+
+export default Productos;
